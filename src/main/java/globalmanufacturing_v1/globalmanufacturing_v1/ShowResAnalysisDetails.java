@@ -9,13 +9,15 @@ import java.util.List;
 
 public class ShowResAnalysisDetails {
 
+	String connname = "jdbc:mysql://globalmfgservice:3306/globalmfgdb?user=root&password=igCotOwKrnqrA310&useSSL=false";
+	
 	public String getLinePerformance(List<WCPerformance> listWCPerf,String siteInput) throws IOException {
 		
 		String result="";
 	
         try{  
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con=DriverManager.getConnection( "jdbc:mysql://connplantservice:3306/connplantsdb?user=root&password=VySU8WBweuVYNx3T&useSSL=false");  
+            Connection con=DriverManager.getConnection( connname);  
             Statement stmt=con.createStatement();  
             ResultSet rs=stmt.executeQuery(
             		"SELECT DISTINCT WORKCENTER, FLOOR(RAND()*(100)) FROM `RESOURCE_MASTER` "
@@ -51,7 +53,7 @@ public class ShowResAnalysisDetails {
 		String durationlist = "";
         try{  
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con=DriverManager.getConnection( "jdbc:mysql://connplantservice:3306/connplantsdb?user=root&password=VySU8WBweuVYNx3T&useSSL=false");  
+            Connection con=DriverManager.getConnection( connname);  
             Statement stmt=con.createStatement();  
             ResultSet rs=stmt.executeQuery(
             		"SELECT RESOURCE , FLOOR(RAND()*(100)) FROM `RESOURCE_TIME_LOG` "
@@ -85,7 +87,7 @@ public class ShowResAnalysisDetails {
 		 String result="";
 	        try{  
 	            Class.forName("com.mysql.cj.jdbc.Driver");
-	            Connection con=DriverManager.getConnection( "jdbc:mysql://connplantservice:3306/connplantsdb?user=root&password=VySU8WBweuVYNx3T&useSSL=false");  
+	            Connection con=DriverManager.getConnection( connname);  
 	            Statement stmt=con.createStatement();  
 	            ResultSet rs=stmt.executeQuery(
 	            		"SELECT * FROM `RESOURCE_TIME_LOG` "

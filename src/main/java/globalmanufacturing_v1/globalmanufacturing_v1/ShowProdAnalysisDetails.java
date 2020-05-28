@@ -10,11 +10,13 @@ import java.util.List;
 
 public class ShowProdAnalysisDetails {
 	
+	String connname = "jdbc:mysql://globalmfgservice:3306/globalmfgdb?user=root&password=igCotOwKrnqrA310&useSSL=false";
+	
 	public String displaySiteOrder(List<SiteOrder> listSiteOrder, String siteInput, String fromDt) throws IOException{
         String result="";
         try{  
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con=DriverManager.getConnection( "jdbc:mysql://connplantservice:3306/connplantsdb?user=root&password=VySU8WBweuVYNx3T&useSSL=false");  
+            Connection con=DriverManager.getConnection(connname);  
             Statement stmt=con.createStatement();  
             ResultSet rs=stmt.executeQuery("SELECT * FROM `SHOP_ORDER` WHERE SITE ='"+siteInput+"' AND MODIFIED_DATE_TIME > '"+fromDt+"'");  
             while(rs.next()){  
@@ -47,7 +49,7 @@ public class ShowProdAnalysisDetails {
         String result="";
         try{  
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con=DriverManager.getConnection( "jdbc:mysql://connplantservice:3306/connplantsdb?user=root&password=VySU8WBweuVYNx3T&useSSL=false");  
+            Connection con=DriverManager.getConnection( connname);  
             Statement stmt=con.createStatement();  
             ResultSet rs=stmt.executeQuery("SELECT * FROM `SFC` WHERE SITE ='"+siteInput+"' AND MODIFIED_DATE_TIME > '"+fromDateTime+"' AND SHOP_ORDER LIKE '%"+selectedOrder+"'");  
             while(rs.next()){  
@@ -84,7 +86,7 @@ public class ShowProdAnalysisDetails {
 	
         try{  
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con=DriverManager.getConnection( "jdbc:mysql://connplantservice:3306/connplantsdb?user=root&password=VySU8WBweuVYNx3T&useSSL=false");  
+            Connection con=DriverManager.getConnection( connname);  
             Statement stmt=con.createStatement();  
              qry = "SELECT SUM(QTY_TO_BUILD), SUM(QTY_DONE) FROM `SHOP_ORDER` "
             		+ "WHERE SITE ='"+siteInput+"' "
