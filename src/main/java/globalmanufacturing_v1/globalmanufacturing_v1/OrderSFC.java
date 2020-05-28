@@ -1,4 +1,4 @@
-package connectedplants.connectedplants;
+package globalmanufacturing_v1.globalmanufacturing_v1;
 
 public class OrderSFC {
 	

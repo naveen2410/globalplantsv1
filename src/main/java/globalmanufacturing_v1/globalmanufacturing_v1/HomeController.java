@@ -157,8 +157,8 @@ public class HomeController {
 
    }
 	
-	@PostMapping("/welcomeProd")
-	public String prodSubmit(Model model, @ModelAttribute Production production) {
+	@PostMapping("/welcomeProd/{sitelist}")
+	public String prodSubmit(Model model, @ModelAttribute Production production, @PathVariable("sitelist") String sitelist) {
 
 		List<SiteOrder> listSiteOrderAs = new ArrayList<SiteOrder>();
 		List<SiteOrder> listSiteOrderBs = new ArrayList<SiteOrder>();
@@ -166,8 +166,13 @@ public class HomeController {
 		List<OrderSFC> listOrderSfcAs = new ArrayList<OrderSFC>();
 		List<OrderSFC> listOrderSfcBs = new ArrayList<OrderSFC>();
 
-		String siteAInput = "PPME";
-		String siteBInput = "EXID";
+		//String siteAInput = "PPME";
+		//String siteBInput = "EXID";
+		
+		String siteAInput = sitelist.split(",")[0];
+		String siteBInput = sitelist.split(",")[1];
+				
+		System.out.println("siteAInput : " + siteAInput + " siteBInput : " + siteBInput);
 		
 		String selectedOrderA = "PLATETRT005";
 		String selectedOrderB = "1000486";
