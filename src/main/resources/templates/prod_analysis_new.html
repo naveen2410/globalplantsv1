@@ -24,7 +24,7 @@ $(function () {
         
     var myObj, text;
     
-    var str = 'a';
+    var str = 'PPME,EXID';
     var search = {}
                  search["sitelist"] = str;
      $.ajax({
@@ -43,9 +43,10 @@ $(function () {
     
     
          var colors = Highcharts.getOptions().colors,
-             categories = ['PPME','EXID'],
+             //categories = ['PPME','EXID'],
+             categories = myObj.sites,
              name = ['Plants',''],
-             data = myObj;
+             data = myObj.qty;
     
          function setChart(name, categories, data, color, type) {
              var len = chart.series.length;

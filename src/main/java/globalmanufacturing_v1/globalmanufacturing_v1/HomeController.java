@@ -143,7 +143,9 @@ public class HomeController {
     public ResponseEntity<?> getSearchResultViaAjax(@PathVariable("sitelist") String sitelist) {
 
       
-        
+        String jsStringResult = "{\"sites\":[ \"PPM1\", \"EXI2\"],\r\n" + 
+        		"\"qty\": [{\"y\": 40,\"color\": \"red\",\"drilldown\": {\"categories\": [\"order 1\",\"order 2\",\"order 3\",\"order 4\"], \"series\": [{\"type\": \"column\",\"name\": \"Target\",\"data\": [10.85, 7.35, 33.06, 2.81], \"color\": \"blue\"},{\"type\": \"column\",\"name\": \"Actual\",\"data\": [1, 5, 10, 15], \"color\": \"green\"}]}},{\"y\": 50,\"color\": \"red\",\"drilldown\": {\"categories\": [\"order 5\",\"order 6\",\"order 7\"], \"series\": [{\"type\": \"column\",\"name\": \"Target\",\"data\": [20.85, 17.35, 36.06], \"color\": \"blue\"},{\"type\": \"column\",\"name\": \"Actual\",\"data\": [1, 5, 10], \"color\": \"green\"}]}}]\r\n" + 
+        		"}";
         
         
         String jsonStringResult = "["
@@ -153,7 +155,7 @@ public class HomeController {
         
       
                 
-        return ResponseEntity.ok(jsonStringResult);
+        return ResponseEntity.ok(jsStringResult);
 
    }
 	
