@@ -165,7 +165,7 @@ public class HomeController {
 
       
         String jsStringResult = "{\"sites\":[ \""+sitelist.split(",")[0]+"\", \""+sitelist.split(",")[1]+"\",\""+sitelist.split(",")[2]+"\"],\r\n" + 
-        		"\"qty\": [{\"y\": 40,\"color\": \"red\"},{\"y\": 50,\"color\": \"red\"},{\"y\":65,\"color\":\"red\"}]"+          				
+        		"\"qty\": [{\"y\": 40,\"color\": \"blue\"},{\"y\": 50,\"color\": \"green\"},{\"y\":65,\"color\":\"red\"}]"+          				
         		"}";
         
         
