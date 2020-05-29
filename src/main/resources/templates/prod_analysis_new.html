@@ -18,125 +18,8 @@
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/drilldown.js"></script>
 
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js"></script>
-
-
 <script th:inline="javascript">
      /*<![CDATA[*/
-    	 
-    	 function loadWC() {
-
-		//alert("Inside loadWC");
-
-		//load site1 wc
-		var text = '[{"name": "WC1","y": 61.41}, {"name": "WC2","y": 11.84},{"name": "WC3","y": 14}]';
-		var myObj = JSON.parse(text);
-
-		Highcharts
-				.chart(
-						'containerwc1',
-						{
-							chart : {
-								plotBackgroundColor : null,
-								plotBorderWidth : null,
-								plotShadow : false,
-								type : 'pie'
-							},
-							title : {
-								text : 'Performance analysis for EXID'
-							},
-							tooltip : {
-								pointFormat : '{series.name}: <b>{point.percentage:.1f}%</b>'
-							},
-							accessibility : {
-								point : {
-									valueSuffix : '%'
-								}
-							},
-							plotOptions : {
-								pie : {
-									allowPointSelect : true,
-									cursor : 'pointer',
-									dataLabels : {
-										enabled : true,
-										format : '<b>{point.name}</b>: {point.percentage:.1f} %'
-									}
-								},
-								series : {
-									cursor : 'pointer',
-									point : {
-										events : {
-											click : function() {
-												//location.href = this.options.url;
-												//alert(this.name);
-												loadRes(this.name);
-											}
-										}
-									}
-								}
-							},
-							series : [ {
-								name : 'Rate',
-								colorByPoint : true,
-								data : myObj
-							} ]
-						});
-
-		//load site2 wc
-		var text = '[{"name": "WC4","y": 71.41}, {"name": "WC5","y": 29}]';
-		var myObj = JSON.parse(text);
-
-		Highcharts
-				.chart(
-						'containerwc2',
-						{
-							chart : {
-								plotBackgroundColor : null,
-								plotBorderWidth : null,
-								plotShadow : false,
-								type : 'pie'
-							},
-							title : {
-								text : 'Performance analysis for PPME'
-							},
-							tooltip : {
-								pointFormat : '{series.name}: <b>{point.percentage:.1f}%</b>'
-							},
-							accessibility : {
-								point : {
-									valueSuffix : '%'
-								}
-							},
-							plotOptions : {
-								pie : {
-									allowPointSelect : true,
-									cursor : 'pointer',
-									dataLabels : {
-										enabled : true,
-										format : '<b>{point.name}</b>: {point.percentage:.1f} %'
-									}
-								},
-								series : {
-									cursor : 'pointer',
-									point : {
-										events : {
-											click : function() {
-												//location.href = this.options.url;
-												//alert(this.name);
-												loadRes(this.name);
-											}
-										}
-									}
-								}
-							},
-							series : [ {
-								name : 'Rate',
-								colorByPoint : true,
-								data : myObj
-							} ]
-						});
-	}
 
 $(function () {
      var chart;
@@ -145,7 +28,7 @@ $(function () {
         
     var myObj, text;
     
-    var str = 'PPM1,EXI2';
+    var str = 'PPME,EXID';
     var search = {}
                  search["sitelist"] = str;
      $.ajax({
@@ -219,7 +102,7 @@ $(function () {
                  column: {
                      cursor: 'pointer',
                      point: {
-                         /*events: {
+                         events: {
                              click: function() {
                                  var drilldown = this.drilldown;
                                  if (drilldown) { // drill down
@@ -228,14 +111,7 @@ $(function () {
                                      setChart(name, categories, data, 'column');
                                  }
                              }
-                         }*/
-                         events : {
-								click : function() {
-									//location.href = this.options.url;
-									alert("1");
-									loadWC();
-								}
-							}
+                         }
                      },
                      dataLabels: {
                          enabled: true
@@ -245,7 +121,7 @@ $(function () {
                  spline: {
                      cursor: 'pointer',
                      point: {
-                         /*events: {
+                         events: {
                              click: function() {
                                  var drilldown = this.drilldown;
                                  if (drilldown) { // drill down
@@ -254,14 +130,7 @@ $(function () {
                                      setChart(name, categories, data, 'column');
                                  }
                              }
-                         }*/
-                         events : {
-								click : function() {
-									//location.href = this.options.url;
-									alert("2");
-									loadWC();
-								}
-							}
+                         }
                      },
                      dataLabels: {
                          enabled: false
@@ -318,32 +187,5 @@ $(function () {
 		<div id="container"
 			style="min-width: 400px; height: 400px; margin: 0 auto"></div>
 	</div>
-	
-	<table>
-		<tr>
-			<td>
-				<figure class="highcharts-figure">
-					<div id="containerwc1"></div>
-				</figure>
-			</td>
-			<td>
-				<figure class="highcharts-figure">
-					<div id="containerwc2"></div>
-				</figure>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<figure class="highcharts-figure">
-					<div id="containerres1"></div>
-				</figure>
-			</td>
-			<td>
-				<figure class="highcharts-figure">
-					<div id="containerres2"></div>
-				</figure>
-			</td>
-		</tr>
-	</table>
 </body>
 </html>
