@@ -219,7 +219,7 @@ $(function () {
                  column: {
                      cursor: 'pointer',
                      point: {
-                         events: {
+                         /*events: {
                              click: function() {
                                  var drilldown = this.drilldown;
                                  if (drilldown) { // drill down
@@ -228,7 +228,14 @@ $(function () {
                                      setChart(name, categories, data, 'column');
                                  }
                              }
-                         }
+                         }*/
+                         events : {
+								click : function() {
+									//location.href = this.options.url;
+									//alert(this.name);
+									loadWC();
+								}
+							}
                      },
                      dataLabels: {
                          enabled: true
