@@ -164,7 +164,7 @@ public class HomeController {
     public ResponseEntity<?> getResourceResultViaAjax(@PathVariable("sitelist") String sitelist) {
 
       
-        String jsStringResult = "{\"sites\":[ \""+sitelist.split(",")[0]+"\", \""+sitelist.split(",")[1]+"\"],\r\n" + 
+        String jsStringResult = "{\"sites\":[ \""+sitelist.split(",")[0]+"\", \""+sitelist.split(",")[1]+"\",\""+sitelist.split(",")[2]+"\"],\r\n" + 
         		"\"qty\": [{\"y\": 40,\"color\": \"red\"},{\"y\": 50,\"color\": \"red\"},{\"y\":65,\"color\":\"red\"}]"+          				
         		"}";
         
