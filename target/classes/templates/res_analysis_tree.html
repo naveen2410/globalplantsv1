@@ -22,7 +22,7 @@
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
 
-    <base href="https://demos.telerik.com/kendo-ui/treeview/events">
+   <!--  <base href="https://demos.telerik.com/kendo-ui/treeview/events"> -->
     <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
   
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.default-v2.min.css" />
@@ -246,7 +246,7 @@ $(function () {
                      contentType: "application/json",
                      url: "/api/searchRes/"+str,
                      data: JSON.stringify(search),
-                     dataType: 'json',
+                     dataType: 'jsonp',
                      success: function (data) {
                          text = JSON.stringify(data, null, 4);
                     
