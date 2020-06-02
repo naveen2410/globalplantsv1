@@ -386,7 +386,7 @@ public class HomeController {
 		//return "res_analysis_demo";
 		//return "res_analysis";
 		//return "res_analysis_new";
-		//return "res_analysis_tree";
-		return "res_tree";
+		return "res_analysis_tree";
+		//return "res_tree";
 	}
 }
