@@ -22,7 +22,7 @@
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
 
-     <base href="https://demos.telerik.com/kendo-ui/treeview/events">
+    <!--  <base href="https://demos.telerik.com/kendo-ui/treeview/events"> -->
     <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
   
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.default-v2.min.css" />
@@ -49,7 +49,7 @@
     	 
     	 function loadTree(){
     	 
-    		 var text = '[{ "text": "Site1", "expanded": "true", "items": [{ "text": "WC1" },{ "text": "WC2" }] },{ "text": "Site2", "items": [{ "text": "WC3" },{ "text": "WC4" }] },{ "text": "WC5" }]';
+    		 var text = '[{ "text": "Site1", "expanded": "true", "items": [{ "text": "WC1", "expanded": "true" },{ "text": "WC2", "expanded": "true" }] },{ "text": "Site2", "expanded": "true", "items": [{ "text": "WC3", "expanded": "true" },{ "text": "WC4", "expanded": "true" }] },{ "text": "WC5", "expanded": "true" }]';
     			var myObj = JSON.parse(text);
     	 
     		  function onSelect(e) {	
@@ -246,7 +246,7 @@ $(function () {
                      contentType: "application/json",
                      url: "/api/searchRes/"+str,
                      data: JSON.stringify(search),
-                     dataType: 'jsonp',
+                     dataType: 'json',
                      success: function (data) {
                          text = JSON.stringify(data, null, 4);
                     
